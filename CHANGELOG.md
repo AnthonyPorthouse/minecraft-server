@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.4.0](https://github.com/AnthonyPorthouse/minecraft-server/compare/v1.3.0...v1.4.0) (2024-06-06)
+
+
+### Features
+
+* add java 21 for minecraft 1.20.5 ([1679ba9](https://github.com/AnthonyPorthouse/minecraft-server/commit/1679ba988dc40f8eec3fa5e88a0dafa7182848b2))
+* add java 21 for minecraft 1.20.5 ([2fb3d6f](https://github.com/AnthonyPorthouse/minecraft-server/commit/2fb3d6f8a236264fc443534d74a4340bee2c6db8))
+
+
+### Bug Fixes
+
+* correctly pass build arguments ([1679ba9](https://github.com/AnthonyPorthouse/minecraft-server/commit/1679ba988dc40f8eec3fa5e88a0dafa7182848b2))
+* correctly pass build arguments ([2fb3d6f](https://github.com/AnthonyPorthouse/minecraft-server/commit/2fb3d6f8a236264fc443534d74a4340bee2c6db8))
+
 ## [1.3.0](https://github.com/AnthonyPorthouse/minecraft-server/compare/v1.2.0...v1.3.0) (2023-11-22)
 
 
