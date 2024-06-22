@@ -8,6 +8,7 @@ The major tags determine which version of java you will be using to run minecraf
 - `java11`
 - `java16`
 - `java17`
+- `java21`
 
 ## Usage
 

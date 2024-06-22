@@ -1,8 +1,6 @@
 #! /usr/bin/env bash
 set -e
 
-env
-
 PUID=${PUID:-1000}
 PGID=${PGID:-1000}
 USER=${USER:-"minecraft"}
