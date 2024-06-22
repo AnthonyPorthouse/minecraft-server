@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
-set -e
+set -ex
 
-JAR_NAME="server-${MINECRAFT_VERSION}.jar"
+env
 
 PUID=${PUID:-1000}
 PGID=${PGID:-1000}
@@ -9,26 +9,45 @@ USER=${USER:-"minecraft"}
 
 set-up-user.sh "$USER" "$PUID" "$PGID"
 
-if [ ! -f "$JAR_NAME" ]; then
-    echo "Downloading Minecraft";
+if [ -n "$FABRIC_LOADER_VERSION" ] && [ -n "$FABRIC_INSTALLER_VERSION" ]; then
+    echo "Installing Fabric"
+    JAR_NAME="$(download-fabric.sh)"
+elif [ -n "$NEO_VERSION" ]; then
+    echo "Installing NeoForge"
 
-    manifest=$(curl -s 'https://launchermeta.mojang.com/mc/game/version_manifest.json')
-    version=$(jq -c ".versions[] | select( .id == \"$MINECRAFT_VERSION\" )" <<< "$manifest")
-    version_manifest=$(curl -s "$(jq -r ".url" <<< "$version")")
+    JAR_NAME="$(download-neoforge.sh)"
+    # Neoforge uses a custom script to run minecraft
+    COMMAND="${*:-"cd /minecraft; PATH=$(which java):$PATH ./run.sh nogui"}"
+elif [ -n "$FORGE_VERSION" ]; then
+    echo "Installing Forge"
 
-    server_url=$(jq -r '.downloads.server.url' <<< "$version_manifest")
+    JAR_NAME="$(download-forge.sh)"
+    # Modern versions of forge use a custom script
+    if [ -f "run.sh" ]; then
+        COMMAND="${*:-"cd /minecraft; PATH=$(which java):$PATH ./run.sh nogui"}"
+    fi
+elif [ -n "$PAPER_BUILD" ]; then
+    echo "Installing Paper"
 
-    curl -o "$JAR_NAME" -J "$server_url"
+    JAR_NAME="$(download-paper.sh)"
+else
+    echo "Installing Vanilla"
+
+    JAR_NAME="$(download-vanilla.sh)"
 fi
 
-echo "Accepting EULA"
-echo "eula=true" > eula.txt
+if [ -z "$COMMAND" ]; then
+    # Default command
+    COMMAND="${*:-"cd /minecraft; $(which java) ${JAVA_OPTS} -jar $JAR_NAME nogui"}"
+fi
+
+if [ "$EULA" == "true" ]; then
+    echo "Accepting EULA"
+    echo "eula=true" > eula.txt
+fi
 
 configure-server-properties.sh
 
 chown -R "${USER}":"${USER}" /minecraft
-
-
-COMMAND="${*:-"cd /minecraft; $(which java) ${JAVA_OPTS} -jar $JAR_NAME nogui"}"
 
 su -l "${USER}" -c "$COMMAND"

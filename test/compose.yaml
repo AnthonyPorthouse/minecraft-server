@@ -1,0 +1,69 @@
+services:
+  vanilla:
+    image: minecraft-server
+    build: ..
+    
+    environment:
+      MINECRAFT_VERSION: 1.21
+
+      EULA: true
+    
+    volumes:
+      - ./vanilla:/minecraft
+
+  fabric:
+    image: minecraft-server
+    build: ..
+    
+    environment:
+      MINECRAFT_VERSION: 1.21
+
+      FABRIC_LOADER_VERSION: 0.15.11
+      FABRIC_INSTALLER_VERSION: 1.0.1
+
+      EULA: true
+
+    volumes:
+      - ./fabric:/minecraft
+  
+  neoforge:
+    image: minecraft-server
+    build: ..
+    
+    environment:
+      MINECRAFT_VERSION: 1.21
+
+      NEO_VERSION: 21.0.4-beta
+
+      EULA: true
+
+    volumes:
+      - ./neoforge:/minecraft
+
+  forge:
+    image: minecraft-server
+    build: ..
+    
+    environment:
+      MINECRAFT_VERSION: 1.20.6
+
+      FORGE_VERSION: 50.1.7
+
+      EULA: true
+
+    volumes:
+      - ./forge:/minecraft
+  
+  paper:
+    image: minecraft-server
+    build: ..
+    
+    environment:
+      MINECRAFT_VERSION: 1.20.6
+
+      PAPER_BUILD: 147
+
+      EULA: true
+
+    volumes:
+      - ./paper:/minecraft
