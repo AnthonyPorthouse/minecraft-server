@@ -41,6 +41,8 @@ services:
 
 ```
 
+For a more in-depth example, check out the `test` directory, which has a compose.yaml with an example of each loader being configured.
+
 ### Environment Variables
 
 To make this image more useful several environment variables are available to use.
@@ -63,11 +65,42 @@ This should map to the current users GID which can be found using `id -g` on Lin
 
 **`MINECRAFT_VERSION`**
 
-> Default Value: `1.20.2`
-
 This environment variable specifies which version of Minecraft you wish to run. This can be any version supported, either stable or prerelease.
 
 If this is changed after an initial run the container will pull the new version and use that.
+
+**`FABRIC_LOADER_VERSION`**
+
+This specifies, when paired with the `FABRIC_INSTALLER_VERSION` environment variable, that you want to run fabric and specified the version of the loader you want to install.
+
+A list of all fabric loader versions can be found on the [fabric-loader Github](https://github.com/FabricMC/fabric-loader/releases)
+
+**`FABRIC_INSTALLER_VERSION`**
+
+This specifies the verison of the fabric installer you want to use. At the time of writing, this is most likely `1.0.1`.
+
+**`NEO_VERSION`**
+
+The version of NeoForge to use. Specifying this means the server will run the NeoForge loader.
+
+A full list of NeoForge versions can be seen on their [project listing](https://projects.neoforged.net/neoforged/neoforge)
+
+**`FORGE_VERSION`**
+
+The version of Forge to use. Specifying this means the server will run the Minecraft Forge loader.
+
+A full list of Forge versions can be seen on their [homepage](https://files.minecraftforge.net/net/minecraftforge/forge/)
+
+**`PAPER_BUILD`**
+
+The build of Paper to use. This is paired alongside the `MINECRAFT_VERSION` environment variable to determine which version of Paper will be used.
+
+A full list of Paper builds against Minecraft versions can be seen on the [Paper downloads page](https://papermc.io/downloads/paper)
+
+
+**`EULA`**
+
+This must be set to `true` to show acceptance of the Minecraft EULA
 
 **`JAVA_OPTS`**
 

@@ -1,4 +1,4 @@
-ARG JAVA_VERSION=17
+ARG JAVA_VERSION=21
 
 FROM eclipse-temurin:${JAVA_VERSION}
 
@@ -13,12 +13,34 @@ EXPOSE 25565
 
 WORKDIR /minecraft
 
-ENV MINECRAFT_VERSION=1.20.2
+ENV MINECRAFT_VERSION=
+
+# Fabric Specific Versions
+ENV FABRIC_LOADER_VERSION=
+ENV FABIRC_INSTALLER_VERSION=
+
+# NeoForge Specific Version
+ENV NEO_VERSION=
+
+# Forge Specific Version
+ENV FORGE_VERSION=
+
+# Paper Specific Version
+ENV PAPER_BUILD=
+
+ENV EULA=
 
 ENV JAVA_OPTS="-Xms1G -Xmx2G"
 
 COPY entrypoint.sh /entrypoint.sh
 COPY ./set-up-user.sh /usr/local/bin/set-up-user.sh
 COPY ./configure-server-properties.sh /usr/local/bin/configure-server-properties.sh
+
+# Downloaders
+COPY ./download-vanilla.sh /usr/local/bin/download-vanilla.sh
+COPY ./download-fabric.sh /usr/local/bin/download-fabric.sh
+COPY ./download-forge.sh /usr/local/bin/download-forge.sh
+COPY ./download-neoforge.sh /usr/local/bin/download-neoforge.sh
+COPY ./download-paper.sh /usr/local/bin/download-paper.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
