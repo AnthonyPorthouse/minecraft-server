@@ -97,6 +97,11 @@ The build of Paper to use. This is paired alongside the `MINECRAFT_VERSION` envi
 
 A full list of Paper builds against Minecraft versions can be seen on the [Paper downloads page](https://papermc.io/downloads/paper)
 
+**`PACKWIZ_URL`**
+
+When set to the URL of a packwiz `pack.toml` packwiz will be used to download the server version of the pack specified.
+
+More information can be found at the [packwiz site](https://packwiz.infra.link/).
 
 **`EULA`**
 

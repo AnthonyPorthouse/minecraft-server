@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-set -ex
+set -e
 
 env
 
@@ -44,6 +44,12 @@ fi
 if [ "$EULA" == "true" ]; then
     echo "Accepting EULA"
     echo "eula=true" > eula.txt
+fi
+
+if [ -n "$PACKWIZ_URL" ]; then
+    echo "Installing Pack"
+
+    download-packwiz.sh
 fi
 
 configure-server-properties.sh

@@ -28,6 +28,9 @@ ENV FORGE_VERSION=
 # Paper Specific Version
 ENV PAPER_BUILD=
 
+# Packwiz Pack URL
+ENV PACKWIZ_URL=
+
 ENV EULA=
 
 ENV JAVA_OPTS="-Xms1G -Xmx2G"
@@ -42,5 +45,6 @@ COPY ./download-fabric.sh /usr/local/bin/download-fabric.sh
 COPY ./download-forge.sh /usr/local/bin/download-forge.sh
 COPY ./download-neoforge.sh /usr/local/bin/download-neoforge.sh
 COPY ./download-paper.sh /usr/local/bin/download-paper.sh
+COPY ./download-packwiz.sh /usr/local/bin/download-packwiz.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
