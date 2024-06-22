@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/AnthonyPorthouse/minecraft-server/compare/v1.4.0...v2.0.0) (2024-06-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* dynamically install loaders based on environment
+
+### Features
+
+* dynamically install loaders based on environment ([b6ad815](https://github.com/AnthonyPorthouse/minecraft-server/commit/b6ad8159a6699c833c7bd6de714d9a30ab300dc7))
+
 ## [1.4.0](https://github.com/AnthonyPorthouse/minecraft-server/compare/v1.3.0...v1.4.0) (2024-06-06)
 
 
