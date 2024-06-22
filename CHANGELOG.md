@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/AnthonyPorthouse/minecraft-server/compare/v2.0.0...v2.1.0) (2024-06-22)
+
+
+### Features
+
+* add packwiz support ([ca60d40](https://github.com/AnthonyPorthouse/minecraft-server/commit/ca60d4031021b8e90cb3c9a78b34e37a81330266))
+
 ## [2.0.0](https://github.com/AnthonyPorthouse/minecraft-server/compare/v1.4.0...v2.0.0) (2024-06-22)
 
 
