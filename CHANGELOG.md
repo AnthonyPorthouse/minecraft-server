@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/AnthonyPorthouse/minecraft-server/compare/v2.1.0...v2.1.1) (2024-06-22)
+
+
+### Bug Fixes
+
+* remove `env` call from entrypoint ([8044214](https://github.com/AnthonyPorthouse/minecraft-server/commit/80442141c35c234f971893be5bb7c1ac1f4e6074))
+
 ## [2.1.0](https://github.com/AnthonyPorthouse/minecraft-server/compare/v2.0.0...v2.1.0) (2024-06-22)
 
 
