@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/AnthonyPorthouse/minecraft-server/compare/v2.1.1...v2.1.2) (2024-08-08)
+
+
+### Bug Fixes
+
+* correct build issues with base image ([1fc9aa9](https://github.com/AnthonyPorthouse/minecraft-server/commit/1fc9aa940ec25f950ce11c78a6d7265dc59f3c77))
+
 ## [2.1.1](https://github.com/AnthonyPorthouse/minecraft-server/compare/v2.1.0...v2.1.1) (2024-06-22)
 
 
